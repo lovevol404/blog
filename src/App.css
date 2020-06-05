@@ -33,9 +33,15 @@
 .header {
   background: linear-gradient(to right, #12C65E, #34B6E3);
 }
+.content {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.94), #9cdde3);
+}
 .headerText {
   color: #ffffff;
   font:30px Georgia, "Times New Roman", Times, serif; text-decoration:none;
+}
+.shadow{
+  text-shadow: 3px 5px 5px #656B79;
 }
 @keyframes App-logo-spin {
   from {

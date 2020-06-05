@@ -1,12 +1,16 @@
 [
   {
-    "name": "Text.md",
-    "chName":"测试",
-    "label": "测试"
+    "name": "JavaStream.md",
+    "chName":"Java Stream",
+    "labels": ["docker","java","spring","k8s","gitlab"],
+    "desc":"Java中的流处理用法讲解",
+    "imageName":"test.png"
   },
     {
-      "name": "Text2.md",
-      "chName":"测试",
-      "label": "测试"
+      "name": "JavaStream2.md",
+      "chName":"Java Stream2",
+      "labels": ["docker","java","spring","k8s","gitlab"],
+      "desc":"Java中的流处理用法讲解",
+      "imageName":"test.png"
     }
 ]

@@ -1,35 +1,26 @@
 import React, {useEffect, useState} from 'react';
-import {Avatar, Button, Input, Layout, List, message, Progress, Space} from "antd";
+import {Avatar, Button, Card, Input, Layout, List, message, Progress, Select, Space, Tag} from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 import ReactMarkdown from 'react-markdown';
 import testImage from "./images/test.png"
 import "./App.css"
+import {stringToColor} from "./utils/util";
+import {Link} from "react-router-dom";
+import { SearchOutlined } from '@ant-design/icons';
+
+
 const { Header, Content } = Layout;
+const { Meta } = Card;
+
 function App() {
     const [str, setStr] = useState("");
     const [articles, setArticles] = useState([]);
-    const listData = [];
-    for (let i = 0; i < 23; i++) {
-        listData.push({
-            href: 'https://lovevol.top/blog/',
-            title: `样例${i}`,
-            avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-            description:
-                '这是一个样例.',
-            content:
-                '床前明月光，疑是地上霜。举头望明月，低头思故乡.',
-        });
-    }
-    const IconText = ({ icon, text }) => (
-        <Space>
-            {React.createElement(icon)}
-            {text}
-        </Space>
-    );
+    const [labels, setLabels] = useState([]);
+    const [articlesContent, setArticlesContent] = useState([]);
+
     const hanldeOk = () => {
         message.info("你输入的啥？")
     };
-
     const getArtifactRequest = new Request(require('./article/article'), {
         method: 'GET',
     });
@@ -38,69 +29,57 @@ function App() {
         fetch(getArtifactRequest).then((response) => {
             return response.text()
         }).then(text=>{
-            setArticles(JSON.parse(text));
+            const as = JSON.parse(text);
+            setArticles(as);
+            const ls = new Set();
+            as.forEach(a=>{
+                a.labels.forEach(l=>ls.add(l))
+            });
+            setLabels(Array.from(ls));
         });
     },[]);
 
+    useEffect(()=>{
+        articles.forEach(article => {
+            fetch(new Request(require(`./article/${article.name}`), {
+                method: 'GET',
+            })).then((response) => {
+                return response.text()
+            }).then(text => {
+                var as = [];
+                as.push(articlesContent);
+                as.push(text);
+                setArticlesContent(as);
+            });
+        });
+    },[articles]);
     return (
         <Layout>
-            <Header className='header' style={{height:300, textAlign:"center"}}>
-                    <Progress
-                        type="circle"
-                        strokeColor={{
-                            '0%': '#108ee9',
-                            '100%': '#87d068',
-                        }}
-                        percent={1}
-                        status="active"
-                    />
-                    <div>
-                        <span className="headerText">建设中</span>
-                         <Input onChange={(event => setStr(event.target.value))} placeholder="输入一串神秘代码"/><Button onClick={hanldeOk}>确定</Button>
-                </div>
-
+            <Header className='header' style={{height:80, textAlign:"center"}}>
+                <Select
+                    mode="multiple"
+                    placeholder="选择标签以过滤"
+                    className='shadow'
+                    style={{ width: 500,margin: 20 }}
+                >
+                    {labels.map(l => <Select.Option value={l}><Tag color={stringToColor(l)}>{l}</Tag> </Select.Option>)}
+                </Select>
+                <Button shape="circle" icon={<SearchOutlined />} onClick={hanldeOk}/>
             </Header>
-            <Content style={{height: '100%', margin: 30}}>
-                <List
-                    itemLayout="vertical"
-                    size="large"
-                    pagination={{
-                        onChange: page => {
-                            console.log(page);
-                        },
-                        pageSize: 5,
-                    }}
-                    dataSource={listData}
-                    footer={
-                        <div>
-                            <b>By 根号三百万</b>
-                        </div>
-                    }
-                    renderItem={item => (
-                        <List.Item
-                            key={item.title}
-                            actions={[
-                                <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-                                <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-                                <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
-                            ]}
-                            extra={
-                                <img
-                                    width={272}
-                                    alt="logo"
-                                    src={testImage}
-                                />
-                            }
+            <Content style={{height: 1000, padding: 20, display:"flex"}} className='content'>
+                {articles.map(article=>
+                    <Link to={`/detail/${article.name}`}>
+                        <Card
+                            hoverable
+                            style={{ width: 240, margin: 10 }}
+                            cover={<img alt="example" src={require(`./images/${article.imageName}`)} />}
                         >
-                            <List.Item.Meta
-                                avatar={<Avatar src={item.avatar} />}
-                                title={<a href={item.href}>{item.title}</a>}
-                                description={item.description}
-                            />
-                            {item.content}
-                        </List.Item>
-                    )}
-                />
+                            <Meta title={article.chName} description={article.desc} style={{marginBottom:5}}/>
+                            <span>{article.labels.map(label=><Tag color={stringToColor(label)}>{label}</Tag>)}</span>
+                        </Card>
+                    </Link>
+
+                )}
             </Content>
         </Layout>
     );
