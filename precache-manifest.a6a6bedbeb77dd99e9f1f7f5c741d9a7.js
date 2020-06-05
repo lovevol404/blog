@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "aa43e8ffd945945834a2b4aa915c845c",
+    "revision": "20d2e21a6e229b3206b24d56335fbcfc",
     "url": "/blog/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/blog/static/css/2.4deadad5.chunk.css"
   },
   {
-    "revision": "2fffcd2e7ca064034ab9",
+    "revision": "3fa6fd6d305cb965b435",
     "url": "/blog/static/css/main.0eaccf4a.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/blog/static/js/2.708c26dc.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2fffcd2e7ca064034ab9",
-    "url": "/blog/static/js/main.9183b80d.chunk.js"
+    "revision": "3fa6fd6d305cb965b435",
+    "url": "/blog/static/js/main.0ee2b8a0.chunk.js"
   },
   {
     "revision": "248e49219d238f4ae04e",
@@ -32,12 +32,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/blog/static/media/JavaStream.190f581e.md"
   },
   {
-    "revision": "3d9baa904160320ff06b7209a6b11b57",
-    "url": "/blog/static/media/JavaStream2.3d9baa90.md"
+    "revision": "cc5e2dcb9baae7cffcfb104119a90d7d",
+    "url": "/blog/static/media/MysqlUseDocker.cc5e2dcb.md"
   },
   {
-    "revision": "cea4b3360d1671313c031eb2de223260",
-    "url": "/blog/static/media/article.cea4b336.bin"
+    "revision": "e4e19f0c57ca4e0199081e7736361bdd",
+    "url": "/blog/static/media/article.e4e19f0c.bin"
   },
   {
     "revision": "012d49eeaa383db28742d40028fa5504",
