@@ -1,10 +1,13 @@
-import React from 'react';
-import {Avatar, Layout, List, Progress, Space} from "antd";
+import React, {useEffect, useState} from 'react';
+import {Avatar, Button, Input, Layout, List, message, Progress, Space} from "antd";
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
+import ReactMarkdown from 'react-markdown';
 import testImage from "./images/test.png"
 import "./App.css"
 const { Header, Content } = Layout;
 function App() {
+    const [str, setStr] = useState("");
+    const [articles, setArticles] = useState([]);
     const listData = [];
     for (let i = 0; i < 23; i++) {
         listData.push({
@@ -17,16 +20,31 @@ function App() {
                 '床前明月光，疑是地上霜。举头望明月，低头思故乡.',
         });
     }
-
     const IconText = ({ icon, text }) => (
         <Space>
             {React.createElement(icon)}
             {text}
         </Space>
     );
+    const hanldeOk = () => {
+        message.info("你输入的啥？")
+    };
+
+    const getArtifactRequest = new Request(require('./article/article'), {
+        method: 'GET',
+    });
+
+    useEffect(()=>{
+        fetch(getArtifactRequest).then((response) => {
+            return response.text()
+        }).then(text=>{
+            setArticles(JSON.parse(text));
+        });
+    },[]);
+
     return (
         <Layout>
-            <Header className='header' style={{height:200, textAlign:"center"}}>
+            <Header className='header' style={{height:300, textAlign:"center"}}>
                     <Progress
                         type="circle"
                         strokeColor={{
@@ -38,7 +56,8 @@ function App() {
                     />
                     <div>
                         <span className="headerText">建设中</span>
-                    </div>
+                         <Input onChange={(event => setStr(event.target.value))} placeholder="输入一串神秘代码"/><Button onClick={hanldeOk}>确定</Button>
+                </div>
 
             </Header>
             <Content style={{height: '100%', margin: 30}}>
