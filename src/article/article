@@ -2,15 +2,15 @@
   {
     "name": "JavaStream.md",
     "chName":"Java Stream",
-    "labels": ["docker","java","spring","k8s","gitlab"],
+    "labels": ["java"],
     "desc":"Java中的流处理用法讲解",
     "imageName":"test.png"
   },
-    {
-      "name": "JavaStream2.md",
-      "chName":"Java Stream2",
-      "labels": ["docker","java","spring","k8s","gitlab"],
-      "desc":"Java中的流处理用法讲解",
-      "imageName":"test.png"
-    }
+  {
+    "name": "MysqlUseDocker.md",
+    "chName":"Docker搭建MySql数据库",
+    "labels": ["docker","mysql"],
+    "desc":"使用Docker搭建MySql数据库",
+    "imageName":"test.png"
+  }
 ]

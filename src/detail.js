@@ -15,7 +15,8 @@ export default class Detail extends React.Component{
         }
     }
     componentDidMount() {
-        const articleName = this.state.articleName
+        document.documentElement.scrollTop = document.body.scrollTop =0;
+        const articleName = this.state.articleName;
         fetch(new Request(require(`./article/${articleName}`), {
             method: 'GET',
         })).then((response) => {
@@ -33,8 +34,8 @@ export default class Detail extends React.Component{
                 <Header className='header' style={{height:60, textAlign:"center"}}>
                     <Link to='/blog'><HomeOutlined style={{color:"#ffffff"}}/></Link>
                 </Header>
-                <Content style={{height: 1000, padding: 20, textAlign: "left"}} className='content'>
-                    <ReactMarkdown source={this.state.articleContent}/>
+                <Content style={{height: 1000, padding: 20, textAlign: "left", paddingLeft:200}} className='content'>
+                    <ReactMarkdown source={this.state.articleContent} escapeHtml={false}/>
                 </Content>
             </Layout>
         )
