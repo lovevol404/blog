@@ -30,6 +30,13 @@
   color: #61dafb;
 }
 
+.header {
+  background: linear-gradient(to right, #12C65E, #34B6E3);
+}
+.headerText {
+  color: #ffffff;
+  font:30px Georgia, "Times New Roman", Times, serif; text-decoration:none;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -37,4 +44,6 @@
   to {
     transform: rotate(360deg);
   }
+
+
 }
