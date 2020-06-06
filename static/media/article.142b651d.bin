@@ -1,0 +1,9 @@
+[
+  {
+    "name": "MysqlUseDocker.md",
+    "chName":"使用Docker搭建基础设施",
+    "labels": ["docker","mysql"],
+    "desc":"介绍Docker并使用Docker搭建本地基础设施依赖，以MySQL为例",
+    "imageName":"docker.jpg"
+  }
+]
