@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7120da208cd9d89e4a2709258b757ee3",
+    "revision": "0585f894e7d1b85b0c14150d7e46a55d",
     "url": "/blog/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/blog/static/css/2.4deadad5.chunk.css"
   },
   {
-    "revision": "15d8b2223add0d158588",
+    "revision": "c420f5ff6691216e6fe3",
     "url": "/blog/static/css/main.0eaccf4a.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/blog/static/js/2.30f23da1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "15d8b2223add0d158588",
-    "url": "/blog/static/js/main.85e9da8e.chunk.js"
+    "revision": "c420f5ff6691216e6fe3",
+    "url": "/blog/static/js/main.a32a102e.chunk.js"
   },
   {
     "revision": "248e49219d238f4ae04e",
@@ -32,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/blog/static/media/JavaStream.190f581e.md"
   },
   {
-    "revision": "1c92b880137a2c68cdd0c4abd2ef97b1",
-    "url": "/blog/static/media/MysqlUseDocker.1c92b880.md"
+    "revision": "0b08ba8c12b6a073e1235d368bd005b5",
+    "url": "/blog/static/media/MysqlUseDocker.0b08ba8c.md"
   },
   {
     "revision": "142b651d1b2c8e260a123d3434586227",
